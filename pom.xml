@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mycompany.apigee.example</groupId>
+    <artifactId>apigee-example-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>snapshot-internal-repository</id>
+            <url>http://repo.yourcompany.com/nexus/content/repositories/snapshots-local</url>
+        </snapshotRepository>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>internal-repository</id>
+            <url>http://repo.yourcomany.com/nexus/content/repositories/releases-local</url>
+        </repository>
+        <site>
+            <id>site-location</id>
+            <url>${site.location}</url>
+        </site>
+    </distributionManagement>
+
+    <scm>
+            <connection>scm:git:git@github.com:dhewzulla/apigee-template-project.git</connection>
+            
+    </scm>
+
+	<properties>          
+	        <maven.assembly.plugin.version>2.2</maven.assembly.plugin.version>            
+    </properties>
+   
+    
+    <build>
+    <plugins>
+    
+    
+        
+        
+    
+        <plugin>
+            <groupId>external.atlassian.jgitflow</groupId>
+            <artifactId>jgitflow-maven-plugin</artifactId>
+            <version>1.0-m4.3</version>
+              <configuration>
+                 <!--     
+    				<enableSshAgent>true</enableSshAgent>
+    				 -->
+    				<autoVersionSubmodules>true</autoVersionSubmodules> 
+    				<pushFeatures>true</pushFeatures>    
+    				<pushReleases>true</pushReleases>    
+    				<pushHotfixes>true</pushHotfixes>
+    				<!--      
+    				<noDeploy>true</noDeploy>
+    				 -->
+    				
+    <flowInitContext>      
+      <developBranchName>develop</developBranchName>
+      <versionTagPrefix>release-</versionTagPrefix>
+    </flowInitContext>
+  </configuration>
+      <dependencies>
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.52</version>
+		</dependency>
+	</dependencies>
+	
+        </plugin>
+    </plugins>
+</build>
+  <modules> 
+    <module>package-apigee-proxy</module>
+  </modules>
+    
+</project>
+

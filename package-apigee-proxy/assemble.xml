@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<assembly>
+	<id>distribution</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <baseDirectory>maven</baseDirectory>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>../apiproxy</directory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+             <excludes>
+                <exclude>resources/node/node_modules/**/*</exclude>
+            </excludes>
+            <outputDirectory>/apiproxy</outputDirectory>
+        </fileSet>
+    </fileSets>     
+</assembly>

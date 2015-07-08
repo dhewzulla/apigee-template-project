@@ -1,0 +1,12 @@
+<TargetEndpoint name="backend">    
+    <PreFlow/>
+    <HTTPTargetConnection>
+
+        <URL>http://feed.poqueue.com/video.xml</URL>
+        
+    </HTTPTargetConnection>
+    
+
+</TargetEndpoint>
+
+

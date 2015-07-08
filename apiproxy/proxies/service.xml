@@ -1,0 +1,31 @@
+<ProxyEndpoint name="service">
+    <PostFlow>
+       <Request/>      
+       <Response>                     
+           <Step><Name>cors</Name></Step>   
+       </Response>
+   </PostFlow>
+   
+   <Flows>
+	   <Flow name="options">
+	           <Condition>request.verb = &quot;OPTIONS&quot;</Condition>	           
+	   </Flow>	   
+   </Flows>
+   
+    <HTTPProxyConnection>
+        
+        <BasePath>/service</BasePath>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    
+    
+    <RouteRule name="preflight">
+        <Condition>request.verb = &quot;OPTIONS&quot;</Condition>        
+    </RouteRule>
+   
+    <RouteRule name="default">
+        <TargetEndpoint>backend</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>
+

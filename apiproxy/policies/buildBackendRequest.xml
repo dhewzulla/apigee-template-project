@@ -1,0 +1,12 @@
+<AssignMessage name="buildBackendRequest">
+  <AssignTo createNew="false" type="response"></AssignTo>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <Set>
+    <Headers>
+      <Header name="apikey">somekeyforbakcend</Header>
+    </Headers>
+    <QueryParams>
+       <QueryParam name="client">clientid</QueryParam>    
+    </QueryParams>
+  </Set>
+</AssignMessage>
