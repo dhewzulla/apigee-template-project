@@ -1,1 +1,4 @@
-apigeeutil
+*~
+.DS_Store
+*.versionsBackup
+*/*.pyc
